@@ -1,1 +1,33 @@
 {% extends 'base.html' %}
+<!--  -->
+{% block title %} Home Page {% endblock %}
+<!--  -->
+{% block content %}
+<!-- Content Row -->
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">รหัสรายวิชา</th>
+        <th scope="col">ชื่อภาษาไทย</th>
+        <th scope="col">ชื่อภาษาอังกฤษ</th>
+        <th scope="col">จำนวน</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for subject in subjects %}
+      <tr>
+        <td>#</td>
+        <td>
+          <a href="{% url 'detail' subject.id %}">{{subject.subject_code}}</a>
+        </td>
+        <td>{{subject.subject_name_th}}</td>
+        <td>{{subject.subject_name_en}}</td>
+        <td>{{subject.student.count}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
