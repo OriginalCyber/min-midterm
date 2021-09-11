@@ -2,53 +2,51 @@ from django.db import models
 
 
 class Category(models.Model):
-    """Model definition for Category."""
+    """Model definition for Hospital."""
 
     # TODO: Define fields here
     name = models.CharField(max_length=50)
 
     class Meta:
-        """Meta definition for Category."""
+        """Meta definition for Hospital."""
 
-        verbose_name = "Category"
-        verbose_name_plural = "Category"
+        verbose_name = "Hospital"
+        verbose_name_plural = "Hospital"
 
     def __str__(self):
-        """Unicode representation of Category."""
+        """Unicode representation of Hospital."""
         return self.name
 
 
-class Physisian(models.Model):
+class Student(models.Model):
     """Model definition for Physisian."""
 
     # TODO: Define fields here
-    physisian_code = models.CharField(max_length=11)
+    student_code = models.CharField(max_length=11)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
-    expertise_name = models.CharField(max_length=255)
-    mhospital_name = models.CharField(max_length=255)
 
     class Meta:
         """Meta definition for Physisian."""
 
         verbose_name = "Physisian"
-        verbose_name_plural = "Physisian"
+        verbose_name_plural = "Physisians"
 
     def __str__(self):
         """Unicode representation of Physisian."""
         return self.first_name + " " + self.last_name
 
 
-class Patient(models.Model):
+class Subject(models.Model):
     """Model definition for Patient."""
 
     # TODO: Define fields here
-    patient_code = models.CharField(max_length=25)
-    patient_name_th = models.CharField(max_length=255)
-    patient_name_en = models.CharField(max_length=255)
+    subject_code = models.CharField(max_length=25)
+    subject_name_th = models.CharField(max_length=255)
+    subject_name_en = models.CharField(max_length=255)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    physisian = models.ManyToManyField(
-        Physisian, default=None, null=True, blank=True)
+    student = models.ManyToManyField(
+        Student, default=None, null=True, blank=True)
 
     class Meta:
         """Meta definition for Patient."""
@@ -58,4 +56,4 @@ class Patient(models.Model):
 
     def __str__(self):
         """Unicode representation of Patient."""
-        return self.Patient_name_th
+        return self.subject_name_th

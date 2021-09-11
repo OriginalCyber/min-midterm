@@ -16,6 +16,21 @@
 
       </tr>
     </thead>
+    <tbody>
+      {% for subject in physician %}
+      <tr>
+        <td>#</td>
+        <td>
+          <a href="{% url 'detail' subject.id %}">{{subject.subject_code}}</a>
+        </td>
+        <td>{{subject.subject_name_th}}</td>
+        <td>{{subject.subject_name_en}}</td>
+        <td>{{subject.yung.count}}</td>
+      </tr>
+      <br /> <br /><br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> 
+      <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> 
+      {% endfor %}
+    </tbody>
   </table>
 </div>
 {% endblock %}

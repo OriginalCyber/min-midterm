@@ -1,21 +1,21 @@
-from web.models import Patient
+from web.models import Subject
 from django.shortcuts import render
 
 def index(request):
     context = {}
-    context["patient"] = Patient.objects.all()
+    context["subjects"] = Subject.objects.all()
     return render(request, "index.html", context)
 
 def detail(request, id):
     context = {}
-    Patients = patient.objects.filter(id=id)
-    for patient in patient:
-        context["patient"] = patient
+    subjects = Subject.objects.filter(id=id)
+    for subject in subjects:
+        context["subject"] = subject
 
         return render(request, "detail.html", context)
 
 def about(request):
-    return render(request, "Physisian.html")
+    return render(request, "about.html")
 
 def contact(request):
-    return render(request, "Patient.html")
+    return render(request, "contact.html")
