@@ -1,6 +1,7 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +12,7 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
 
-    
+   
 
     <!-- Bootstrap core CSS -->
 <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
@@ -38,7 +39,7 @@
   <body>
     
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="{% url 'index' %}">Company name</a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="">Company name</a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -53,58 +54,45 @@
 
 
 
+
+
+
 <div class="container-fluid">
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
+          
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{% url 'index' %}">
               <span data-feather="home"></span>
-              Home
+              Hospital 
             </a>
           </li>
 
 
           <li class="nav-item">
             <a class="nav-link" href="{% url 'about' %}">
-              <span data-feather="file"></span>
-              about
+              <span data-feather="users"></span>
+              Physician
             </a>
           </li>
+
 
           <li class="nav-item">
             <a class="nav-link" href="{% url 'contact' %}">
-              <span data-feather="shopping-cart"></span>
-              contact
-            </a>
-          </li>
-
-
-
-
-
-
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">
               <span data-feather="users"></span>
-              Customers
+              Patient
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2"></span>
-              Reports
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers"></span>
-              Integrations
-            </a>
-          </li>
-        </ul>
+
+
+
+
+
+
+
+          
 
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
           <span>Saved reports</span>
@@ -156,12 +144,61 @@
         </div>
       </div>
 
-      <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+
+
       
+
+
+
+
+
+
+
+<div class="container-fluid">
+            <!-- Page Heading -->
+            <div
+              class="d-sm-flex align-items-center justify-content-between mb-4"
+            >
+              <h1 class="h3 mb-0 text-gray-800">
+                {% block title %}{% endblock %}
+
+              </h1>
+              <a
+                href="#"
+                class="
+                  d-none d-sm-inline-block
+                  btn btn-sm btn-primary
+                  shadow-sm
+                "
+                ><i class="fas fa-download fa-sm text-white-50"></i> Generate
+                Report</a
+              >
+            </div>
+            {% block content %}{% endblock %}
+
+          </div>
+
       
     </main>
   </div>
 </div>
+<footer class="sticky-footer bg-white">
+  <div class="container my-auto">
+    <div class="copyright text-center my-auto">
+      <span>Copyright &copy; Your Website 2021</span>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
 
 
     <script src="{% static 'bootstrap.bundle.min.js' %}"></script>

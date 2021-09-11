@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+<!--  -->
+{% block title %} Physician {% endblock %}
+<!--  -->
+{% block content %}
+
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th  scope="col">ชื่อจริง</th>
+        <th  scope="col">นามสกุล</th>
+        <th  scope="col">ความเชี่ยวชาญ</th>
+        <th  scope="col">สังกัดโรงพยาบาล</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for index in index %}
+      <tr>
+        <td>#</td>
+        <td>
+          <a href="{% url 'detail' index.id %}">{{index.codey_code}}</a>
+          <tr>
+
+            <th scope="row">1</th>
+            <td>{{physisian.physisian_code}}</td>
+            <td>{{physisian.first_name}}</td>
+            <td>{{physisian.last_name}}</td>
+            <td>{{physisian.expertise_name}}</td>
+            <td>{{physisian.mhospital_name}}</td>
+          </tr>
+
+      <br /> <br /><br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> 
+      <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> 
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

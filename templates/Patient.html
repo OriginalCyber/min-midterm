@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+<!--  -->
+{% block title %} Patient {% endblock %}
+<!--  -->
+{% block content %}
+
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th  scope="col">ชื่อจริง</th>
+        <th  scope="col">นามสกุล</th>
+        <th  scope="col">เพศ</th>
+        <th  scope="col">อายุ</th>
+        <th  scope="col">แพทย์อยู่ดูแลอาการ</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for index in index %}
+      <tr>
+        <td>#</td>
+        <td>
+          <a href="{% url 'detail' index.id %}">{{index.subject_code}}</a>
+        </td>
+        <td>{{index.subject_name_th}}</td>
+        <td>{{index.subject_name_en}}</td>
+        <td>{{index.index.count}}</td>
+      </tr>
+      <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> 
+            {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
